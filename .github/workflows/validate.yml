@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # For git diff
 
       - name: Download the JSON schema
         run: wget https://raw.githubusercontent.com/ossf/osv-schema/v1.6.0/validation/schema.json
