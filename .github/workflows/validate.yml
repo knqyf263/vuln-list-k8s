@@ -17,4 +17,4 @@ jobs:
         run: pip install check-jsonschema
 
       - name: Validate JSON
-        run: check-jsonschema --schemafile schema.json $(git diff --name-only HEAD main | grep .json)
+        run: check-jsonschema --schemafile schema.json $(git diff --name-only ${{ github.event.pull_request.base.ref }} ${{ github.event.pull_request.head.ref }} | grep .json)
